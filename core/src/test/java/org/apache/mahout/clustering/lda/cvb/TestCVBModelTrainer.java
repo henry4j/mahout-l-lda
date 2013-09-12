@@ -238,7 +238,7 @@ public class TestCVBModelTrainer extends MahoutTestCase {
   private int mostProminentFeature(Vector doc) {
     int term = -1;
     double maxVal = Double.NEGATIVE_INFINITY;
-    for(Vector.Element e : doc) {
+    for(Vector.Element e : doc.all()) {
       if(Math.abs(e.get()) > maxVal) {
         maxVal = Math.abs(e.get());
         term = e.index();

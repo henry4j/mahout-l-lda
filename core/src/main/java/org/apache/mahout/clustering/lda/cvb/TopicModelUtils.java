@@ -70,7 +70,7 @@ public class TopicModelUtils {
 
       // fetch term counts and iterator over non-zero elements
       final Vector termCounts = topicTermCounts.viewRow(t);
-      final Iterator<Element> itr = termCounts.iterateNonZero();
+      final Iterator<Element> itr = termCounts.nonZeroes().iterator();
 
       // determine term count threshold
       final double totalTermCount = termCounts.norm(1);
@@ -121,7 +121,7 @@ public class TopicModelUtils {
         .newArrayListWithCapacity(numTopics);
     // initialize topic iterators and elements
     for (int t = 0; t < numTopics; ++t) {
-      Iterator<Element> itr = sparseTopicTermCounts[t].iterateNonZero();
+      Iterator<Element> itr = sparseTopicTermCounts[t].nonZeroes().iterator();
       if (itr == null) {
         itr = Iterators.emptyIterator();
       }
