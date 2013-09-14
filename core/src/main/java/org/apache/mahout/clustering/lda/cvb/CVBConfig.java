@@ -380,7 +380,7 @@ public class CVBConfig {
 
   protected void checkGreater(String param, Number value, Number threshold) {
     Preconditions.checkArgument(value.doubleValue() > threshold.doubleValue(),
-                                "Expecting %s > %d but found %s", param, threshold, value);
+                                "Expecting %s > %s but found %s", param, threshold, value);
   }
 
   protected void checkGreaterOrEqual(String param, Number value, Number threshold) {
