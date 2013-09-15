@@ -123,8 +123,8 @@ public class CVB0PriorMapper extends MapReduceBase implements
     model.update(docTopicModel);
     // for "true" L-LDA, we'd zero-out entries in the docTopicPrior vector of which used to be 0
     // and re-normalize it before emitting it - reference: http://markmail.org/message/cm2a6rnxblj5azuh
-    if (docTopicPriorGiven) {
-      for (int i = 0; -1 != (i = nonZeroes.nextClearBit(i)); i++) {
+    if(docTopicPriorGiven) {
+      for(int i = 0; (i = nonZeroes.nextClearBit(i)) < nonZeroes.size(); i++) {
         docTopicPriorVector.setQuick(i, 0D);
       }
       docTopicPrior.set(docTopicPriorVector.normalize(1));
